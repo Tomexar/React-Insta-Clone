@@ -1,40 +1,56 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import CommentSection from './../CommentSection/CommentSection';
 
-function PostContainer(props) {
-    return(
-        <>
-            {props.dummy.map(dummy =>(
-                <div key = {dummy.id} className = 'postContainer'>
-                    <div className = 'postHead'>
-                        <img src = {dummy.thumbnailUrl} alt = 'user-icon'/>
-                        <h2>{dummy.username}</h2>
+
+
+class PostContainer extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            likes: props.dummy.likes
+        };
+    }
+    render() {
+        return (
+            <>
+                <div key={this.props.dummy.id} className='postContainer'>
+                    <div className='postHead'>
+                        <img src={this.props.dummy.thumbnailUrl} alt='user-icon' />
+                        <h2>{this.props.dummy.username}</h2>
                     </div>
-                    <div className ='post-pic'>
-                        <img src = {dummy.imageUrl} alt = 'the-post' />
+                    <div className='post-pic'>
+                        <img src={this.props.dummy.imageUrl} alt='the-post' />
                     </div>
-                    <div className = 'icons'>
-                        <p>&#9829;</p>
+                    <div className='icons'>
+                        <i class="far fa-heart fa-3x"></i>
+                        <i className="far fa-comment fa-3x" />
                     </div>
-                    <div className = 'likes'>
-                        <p>{dummy.likes}</p>
+                    <div className='likes'>
+                        <p>{this.props.dummy.likes}</p>
                     </div>
-                    <div className = 'comments'>
-                        {/* <p>{dummy.comments}</p> */}
-                    </div>
-                    <div className ='timestamp'>
-                        <p>{dummy.timestamp}</p>
-                    </div>
-                    <form>
-                        <input 
-                            placeholder = 'Add Comment'
-                            name = 'commentBox'
-                        />
-                    </form>               
+                    <CommentSection
+                        comments={this.props.dummy.comments}
+                        date={this.props.dummy.timestamp}
+                    />
                 </div>
-            ))}
-        </>
-    );
+
+            </>
+        );
+    }
 }
+
+PostContainer.propTypes = {
+    dummy: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number,
+            thumbnailUrl: PropTypes.string,
+            username: PropTypes.string,
+            imageUrl: PropTypes.imageUrl
+        })
+    ).isRequired
+};
 
 
 export default PostContainer;
