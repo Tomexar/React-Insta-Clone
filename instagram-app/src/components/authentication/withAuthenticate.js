@@ -6,14 +6,15 @@ const withAuthenticate = PostPage => Login =>
         constructor(props) {
             super(props);
             this.state = {
-                loggedIn: false
+                isLoggedIn: false
             };
         }
 
         componentDidMount() {
             if (localStorage.getItem('user')) {
                 this.setState({ isLoggedIn: true });
-            } else {
+            }
+            else {
                 this.setState({ isLoggedIn: false });
             }
         };
@@ -21,8 +22,8 @@ const withAuthenticate = PostPage => Login =>
 
 
         render() {
-            if (this.state.loggedIn) return <PostPage/>;
-            else return <Login/>
+            if (this.state.isLoggedIn) return <PostPage />;
+            else return <Login />
         }
     };
 

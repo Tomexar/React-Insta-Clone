@@ -11,29 +11,21 @@ class Login extends React.Component {
     }
 
     handleLogin = event => {
-        this.setState({ [event.target.name]: event.target.vale });
+        this.setState({ [event.target.name]: event.target.value });
     };
 
-
-    toggleLogin = event => {
-        event.preventDefault();
+    handlebutton = event => {
         let user = this.state.username;
-        if (localStorage.getitem('user')) {
-            localStorage.removeItem('user');
-            this.setState({ isLoggedIn: false });
-        }
-        else {
-            localStorage.setItem('user', user);
-            this.setState({ isLoggedIn: true });
-        }
-    }
+        localStorage.setItem('user', user);
+
+    };
 
     render() {
         return (
             <form className='login'>
-                <input type='text' placeholder='username' />
-                <input type='text' placeholder='password' />
-                <button>Log In</button>
+                <input type='text' placeholder='username' name = 'username' value={this.state.username} onChange={this.handleLogin} />
+                <input type='text' placeholder='password'  name = 'password'value={this.state.password} onChange={this.handleLogin} />
+                <button onClick={this.handlebutton}>Log In</button>
             </form>
         )
     }
