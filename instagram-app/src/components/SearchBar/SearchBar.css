@@ -1,0 +1,40 @@
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:100px;
+    max-width: 1900px;
+    margin: 20px  auto;
+    
+}
+
+.logopic{
+    height:80px;
+}
+
+i{
+    width:100px;
+    padding: 
+   
+}
+.left{
+    display: flex;
+}
+.right i {
+    padding:5px;
+ 
+}
+.left i {
+    padding-right: 40px ;
+}
+ input{
+     text-align: center;
+     padding: 10px 50px;
+     font-size: 30px;
+     border:1px solid lightgray;
+     border-radius: 4px;
+ }
+
+
