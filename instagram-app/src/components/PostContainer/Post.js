@@ -12,6 +12,14 @@ class Post extends React.Component {
             likes: props.dummy.likes
         };
     }
+    likeCounter = () =>{
+        this.setState((prevState, props) =>{
+            return {
+                likes: prevState.likes + 1
+            }
+        })
+
+    }
     render() {
         return (
             <div className='post'>
@@ -23,12 +31,10 @@ class Post extends React.Component {
                     <img src={this.props.dummy.imageUrl} alt='the-post' />
                 </div>
                 <div className='icons'>
-                    <i class="far fa-heart fa-3x"></i>
+                    <i class="far fa-heart fa-3x" onClick ={this.likeCounter}></i>
                     <i className="far fa-comment fa-3x" />
                 </div>
-                <div className='likes'>
-                    <p>{this.props.dummy.likes}</p>
-                </div>
+                <div className='likes'><p>{this.state.likes}</p></div>
                 <CommentSection
                     comments={this.props.dummy.comments}
                     date={this.props.dummy.timestamp}
