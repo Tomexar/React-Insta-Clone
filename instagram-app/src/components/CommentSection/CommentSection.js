@@ -13,11 +13,12 @@ class CommentSection extends React.Component{
             
         };
     }
+
     componentDidMount() {
         let id = this.props.postId;
         if (localStorage.getItem(id)){
             this.setState({
-                comments :JSON.parse(localStorage.getItem(this.props.postId))
+                comments: JSON.parse(localStorage.getItem(this.props.postId))
             });
         }
         else {
@@ -47,6 +48,7 @@ class CommentSection extends React.Component{
         let comments = this.state.comments.slice();
         comments.push(newComment);
         this.setState({comments, comment:''});
+        
     }
 
     render(){
