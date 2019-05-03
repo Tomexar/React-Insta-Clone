@@ -1,6 +1,6 @@
 
 
-.header{
+/* /* .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,14 +12,13 @@
 
 .logopic{
     height:80px;
-}
+} */
 
 i{
     width:100px;
-    padding: 
    
 }
-.left{
+/* .left{
     display: flex;
 }
 .right i {
@@ -35,6 +34,6 @@ i{
      font-size: 30px;
      border:1px solid lightgray;
      border-radius: 4px;
- }
+ } */ 
 
 

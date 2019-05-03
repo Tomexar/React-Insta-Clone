@@ -1,7 +1,16 @@
 import React from 'react';
 import Comment from './Comment';
 import CommentInput from './CommentInput';
+import styled from 'styled-components';
 
+const CommentArea= styled.div`
+    margin: 35px 0 0 20px;
+    
+`;
+
+const Date = styled.div`
+    font-size:10px;
+`;
 
 class CommentSection extends React.Component{
     constructor(props){
@@ -53,15 +62,15 @@ class CommentSection extends React.Component{
 
     render(){
         return(
-            <div>
+            <CommentArea>
                 {this.state.comments.map((c,i) => <Comment key ={i} comment = {c}/>)}
-                {this.state.date}
+                <Date>{this.state.date}</Date>
                 <CommentInput 
                     comment = {this.state.comment}
                     submit = {this.handleSubmit}
                     handler = {this.commentHandler}   
                 />
-            </div>
+            </CommentArea>
         );
 
     }
